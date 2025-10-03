@@ -1,0 +1,81 @@
+[
+  {
+    "storage_account": "stprodlogs01",
+    "container": "prod-backups",
+    "region": "centralindia",
+    "env": "prod",
+    "department": "unknown",
+    "size_gb": 6.488300,
+    "blob_count": 3,
+    "days_unused": 0.040000,
+    "monthly_cost": 0.149200
+  },
+  {
+    "storage_account": "stprodlogs01",
+    "container": "prod-logs",
+    "region": "centralindia",
+    "env": "prod",
+    "department": "unknown",
+    "size_gb": 0.019500,
+    "blob_count": 1,
+    "days_unused": 0.180000,
+    "monthly_cost": 0.000400
+  },
+  {
+    "storage_account": "stprodlogs01",
+    "container": "prod-reports",
+    "region": "centralindia",
+    "env": "prod",
+    "department": "unknown",
+    "size_gb": 0.097700,
+    "blob_count": 1,
+    "days_unused": 0.180000,
+    "monthly_cost": 0.002200
+  },
+  {
+    "storage_account": "stestlogs01",
+    "container": "test-logs",
+    "region": "centralindia",
+    "env": "test",
+    "department": "unknown",
+    "size_gb": 0.034200,
+    "blob_count": 2,
+    "days_unused": 0.170000,
+    "monthly_cost": 0.000800
+  },
+  {
+    "storage_account": "stestlogs01",
+    "container": "test-reports",
+    "region": "centralindia",
+    "env": "test",
+    "department": "unknown",
+    "size_gb": 0.048800,
+    "blob_count": 1,
+    "days_unused": 0.180000,
+    "monthly_cost": 0.001100
+  },
+  {
+    "storage_account": "stdevlogs01",
+    "container": "dev-backups",
+    "region": "centralindia",
+    "env": "dev",
+    "department": "unknown",
+    "size_gb": 0.029300,
+    "blob_count": 1,
+    "days_unused": 0.180000,
+    "monthly_cost": 0.000700
+  },
+  {
+    "storage_account": "stdevlogs01",
+    "container": "dev-logs",
+    "region": "centralindia",
+    "env": "dev",
+    "department": "unknown",
+    "size_gb": 0.014600,
+    "blob_count": 2,
+    "days_unused": 0.180000,
+    "monthly_cost": 0.000300
+  }
+]
+
+

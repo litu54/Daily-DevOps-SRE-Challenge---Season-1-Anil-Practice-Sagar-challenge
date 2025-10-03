@@ -1,0 +1,4 @@
+region,env,monthly_cost_estimate
+centralindia|||test,,0.0019
+centralindia|||dev,,0.0010
+centralindia|||prod,,0.1518
