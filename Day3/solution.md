@@ -173,3 +173,38 @@ Copy code
 curl -k -I -u jenkinsadmin:'Jenkins@123' -H "Host: jenkins.local" https://127.0.0.1/jenkins/
 curl -k -I -u grafanaadmin:'Grafana@123' -H "Host: grafana.local" https://127.0.0.1/grafana/
 ✅ Should return 302 (redirect) or 200 OK
+
+
+🧰 Troubleshooting
+Issue	Cause	Fix
+401 Unauthorized	Nginx forwarded Basic Auth header to Jenkins	Add proxy_set_header Authorization "";
+404 Not Found	Jenkins missing prefix	Add --prefix=/jenkins in Jenkins env
+Grafana login loop	Wrong GF_SERVER_ROOT_URL	Set to https://grafana.local/grafana
+Browser shows invalid cert	Self-signed certificate	Click Advanced → Proceed
+Windows can’t resolve hostname	Missing hosts entry	Add in C:\Windows\System32\drivers\etc\hosts
+🧱 Final Verification
+
+✅ https://jenkins.local/jenkins → Nginx Basic Auth → Jenkins Login page
+✅ https://grafana.local/grafana → Nginx Basic Auth → Grafana Login page
+
+You now have:
+
+HTTPS secured endpoints
+
+Isolated Basic Auth layers
+
+Self-hosted observability + CI/CD apps safely accessible 🔐
+
+✨ Credits & Notes
+
+OS: Ubuntu 24.04 (Azure VM)
+
+Reverse Proxy: Nginx 1.24
+
+Apps: Jenkins LTS, Grafana OSS
+
+Author: Anil | DevOps Journey 🚀
+
+Blog: [Your GitHub/Medium Link Here]
+
+💬 “If your Jenkins & Grafana aren’t behind SSL + proxy, you’re just one packet away from pain.”
