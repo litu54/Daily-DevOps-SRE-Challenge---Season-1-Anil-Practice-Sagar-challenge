@@ -1,0 +1,44 @@
+💡 How NGINX Works in Your Setup (in simple words)
+
+In your case, NGINX is acting as a reverse proxy (not a load balancer) —
+but yes, the traffic flow is similar to what load balancers do.
+
+Here’s what happens step by step:
+
+User sends request →
+From browser you hit:
+🔗 https://grafana.local/grafana
+or
+🔗 https://jenkins.local/jenkins
+
+NGINX receives the request →
+Since your DNS (/etc/hosts) points grafana.local → your Azure VM IP,
+the request first hits NGINX (port 443).
+
+TLS/SSL handshake →
+NGINX terminates SSL (it decrypts the HTTPS request using your self-signed cert).
+→ So, the backend (Grafana/Jenkins) receives only plain HTTP traffic internally (via 127.0.0.1).
+
+Authentication check →
+Before routing, NGINX validates the Basic Auth credentials (from .htpasswd).
+If valid ✅ → it forwards the request.
+If invalid ❌ → NGINX stops it right there (no load on backend).
+
+Routing to the right backend →
+Based on the path:
+
+/grafana/ → goes to http://127.0.0.1:3000 (Grafana Docker)
+
+/jenkins/ → goes to http://127.0.0.1:8080 (Jenkins Docker)
+
+Response back to user →
+Grafana or Jenkins sends the response → NGINX encrypts it again (HTTPS) → sends it to the browser.
+
+🧠 So in short:
+
+NGINX here is a secure gateway (reverse proxy) —
+doing SSL termination, authentication, and intelligent routing.
+
+A load balancer does similar routing, but across multiple backend servers for scaling.
+
+You have just one backend for each app, so it’s reverse proxy, not load balancer.
