@@ -1,4 +1,4 @@
-[200~# ☁️ Azure Custom Golden Image Creation & Replication
+# ☁️ Azure Custom Golden Image Creation & Replication
 
 This project demonstrates how to **create a custom Azure VM image**, 
 **harden it**, and **replicate it across multiple Azure regions** using a 
